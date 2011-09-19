@@ -46,8 +46,6 @@ set expandtab
 " Show column
 set ruler
 
-" Enable use of the mouse for all modes
-set mouse=a
 
 " Enable backspace in insert mode
 set backspace=2
