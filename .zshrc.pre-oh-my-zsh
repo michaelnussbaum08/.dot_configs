@@ -9,7 +9,9 @@ export PATH
 autoload -U compinit
 compinit
 
+# allow quiting with C-d
 unsetopt ignore_eof
+
 
 # command aliases
 alias grep='grep --color=auto'
@@ -30,6 +32,11 @@ export PATH="${PATH}:/Users/michaelnussbaum08/Documents/android-sdk-mac_86/tools
 
 EDITOR="/usr/local/bin/vim" 
 bindkey -v
+# use vim style backspace instead of vi style
+bindkey "^W" backward-kill-word    # vi-backward-kill-word
+bindkey "^H" backward-delete-char  # vi-backward-delete-char
+bindkey "^U" backward-kill-line    # vi-kill-line
+bindkey "^?" backward-delete-char  # vi-backward-delete-char
 
 # Size of the directory stack (pushd et al)
 DIRSTACKSIZE=12
