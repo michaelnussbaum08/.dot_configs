@@ -4,12 +4,18 @@ colorscheme molokai
 " enable 256 color
 set t_Co=256
 
-" This beauty remembers where you were the last time you edited the file, and
+" This remembers where you were the last time you edited the file, and
 " returns to the same position.
 au BufReadPost * if line("'\"") > 0|if line("'\"") <=line("$")|exe("norm'\"")|else|exe "norm $"|endif|endif
 
+" break text at 79 chars
+setl textwidth=79
+
+" spell check .txt and .html files
+autocmd BufNewFile,BufRead *.txt,*.html,README set spell
+
 " autodelete trailing whitespace
-au BufWritePre *.py :%s/\s\+$//e
+au BufWritePre *.py,*.h,*.m,*.lisp,*.c :%s/\s\+$//e
 
 " Turn on line numbers:
 set number
@@ -46,6 +52,7 @@ set expandtab
 " Show column
 set ruler
 
+set shell=/usr/local/bin/zsh
 
 " Enable backspace in insert mode
 set backspace=2
