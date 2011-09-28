@@ -1,0 +1,8 @@
+[user]
+	name = Michael Nussbaum
+	email = michaelnussbaum08@gmail.com
+
+[color]
+        ui = auto
+[core]
+	excludesfile = /Users/michaelnussbaum08/.gitignore_global
