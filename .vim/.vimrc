@@ -75,3 +75,10 @@ set incsearch
 " ignorecase in searches except when caps are used
 set ignorecase
 set smartcase
+
+" moving with arrow keys takes you out of insert mode
+inoremap  <Up>     <Esc><Up>
+inoremap  <Down>   <Esc><Down>
+inoremap  <Left>   <Esc><Left>
+inoremap  <Right>  <Esc><Right>
+
