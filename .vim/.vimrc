@@ -1,3 +1,12 @@
+" autocomplete standard python functions
+let g:pydiction_location = '~/.vim/pydiction-1.2/complete-dict' 
+
+" check for a tags file up to root
+set tags=tags;/
+
+" autogenerate tags
+au BufWritePost *.py,*.c,*.cpp,*.h silent! !eval '/usr/local/bin/ctags -R -o newtags; mv newtags tags' &
+
 " Coloring
 colorscheme molokai
 
@@ -75,12 +84,6 @@ set incsearch
 " ignorecase in searches except when caps are used
 set ignorecase
 set smartcase
-
-" moving with arrow keys takes you out of insert mode
-inoremap  <Up>     <Esc><Up>
-inoremap  <Down>   <Esc><Down>
-inoremap  <Left>   <Esc><Left>
-inoremap  <Right>  <Esc><Right>
 
 " Online doc search.
 function! OnlineDoc()
