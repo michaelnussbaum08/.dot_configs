@@ -14,6 +14,7 @@ unsetopt ignore_eof
 
 
 # command aliases
+alias ctags='/usr/local/bin/ctags'
 alias grep='grep --color=auto'
 #alias ls='ls --color=auto'
 alias cp='nocorrect cp'

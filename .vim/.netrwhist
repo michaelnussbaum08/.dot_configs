@@ -1,7 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/Users/michaelnussbaum08/Library/Saved Application State/com.apple.Safari.savedState'
 let g:netrw_dirhist_2='/Users/michaelnussbaum08/Documents/huddle_project/huddle_iphone/.git'
 let g:netrw_dirhist_3='/Users/michaelnussbaum08/.vim.bak'
 let g:netrw_dirhist_4='/Users/michaelnussbaum08/.oh-my-zsh'
 let g:netrw_dirhist_5='/Users/michaelnussbaum08/Downloads/robbyrussell-oh-my-zsh-762b55b/custom/example'
+let g:netrw_dirhist_6='/Users/michaelnussbaum08'
+let g:netrw_dirhist_7='/Users/michaelnussbaum08/Documents/College/Senior_Year/quarter_1/os/homework/hw1'
+let g:netrw_dirhist_8='/Users/michaelnussbaum08/.oh-my-zsh'
