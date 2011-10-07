@@ -1,11 +1,22 @@
+" backup to ~/.tmp
+set backup
+set backupdir=/tmp
+set backupskip=/tmp/*
+set directory=/tmp
+set writebackup
+
 " autocomplete standard python functions
-let g:pydiction_location = '~/.vim/pydiction-1.2/complete-dict' 
+let g:pydiction_location = '~/.vim/pydiction-1.2/complete-dict'
 
 " check for a tags file up to root
-set tags=tags;/
+set tags=.tags;/
 
 " autogenerate tags
-au BufWritePost *.py,*.c,*.cpp,*.h silent! !eval '/usr/local/bin/ctags -R -o newtags; mv newtags tags' &
+au BufWritePost *.py,*.c,*.cpp,*.h,*.lisp silent! !eval '/usr/local/bin/ctags -R -o .newtags; mv .newtags .tags' &
+au BufReadPre *.py,*.c,*.cpp,*.h,*.lisp silent! !eval '/usr/local/bin/ctags -R -o .newtags; mv .newtags .tags' &
+" delete .tags file on exit
+au VimLeave *.py,*.c,*.cpp,*.h,*.lisp silent! !eval 'if [ -f .tags ]; then rm .tags; fi'
+
 
 " Coloring
 colorscheme molokai
