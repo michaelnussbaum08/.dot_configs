@@ -1,3 +1,24 @@
+" Vundle setup from https://github.com/gmarik/vundle
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+" My Bundles:
+"
+" vim-scripts repos
+Bundle 'python.vim'
+Bundle 'surrparen'
+"Bundle 'python.vim--Vasiliev'
+" github repos
+Bundle "vim-scripts/indentpython"
+Bundle "ervandew/supertab"
+
+
 " backup to ~/.tmp
 set backup
 set backupdir=/tmp
