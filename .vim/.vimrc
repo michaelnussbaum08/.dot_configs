@@ -13,13 +13,20 @@ Bundle 'gmarik/vundle'
 " vim-scripts repos
 Bundle 'python.vim'
 Bundle 'surrparen'
-"Bundle 'python.vim--Vasiliev'
+Bundle 'AsyncCommand'
 " github repos
 Bundle "vim-scripts/indentpython"
 Bundle "ervandew/supertab"
+Bundle "michaeljsmith/vim-indent-object"
 
+" persisten undo
+set undodir=/tmp
+set undofile
 
-" backup to ~/.tmp
+" hide useless prompts
+set shortmess=atI
+
+" backup to /.tmp
 set backup
 set backupdir=/tmp
 set backupskip=/tmp/*
@@ -27,7 +34,14 @@ set directory=/tmp
 set writebackup
 
 " autocomplete standard python functions
-let g:pydiction_location = '~/.vim/pydiction-1.2/complete-dict'
+let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
+
+" set the terminal title
+set title
+
+" makes '. jump to line + column of last edit, for example
+nnoremap ' `
+nnoremap ` '
 
 " check for a tags file up to root
 set tags=.tags;/
