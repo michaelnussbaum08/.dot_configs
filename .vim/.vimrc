@@ -18,8 +18,11 @@ au BufReadPre *.py,*.c,*.cpp,*.h,*.lisp silent! !eval '/usr/local/bin/ctags -R -
 au VimLeave *.py,*.c,*.cpp,*.h,*.lisp silent! !eval 'if [ -f .tags ]; then rm .tags; fi'
 
 
+" for mirodark colorscheme
+let g:mirodark_enable_higher_constrast_mode=1
+
 " Coloring
-colorscheme molokai
+colorscheme mirodark
 
 " enable 256 color
 set t_Co=256
@@ -116,3 +119,4 @@ function! OnlineDoc()
   execute s:cmd
 endfunction
 map <F7> :call OnlineDoc()<CR>
+
