@@ -475,7 +475,7 @@ endfun
 call s:HI( "Normal", s:bclr, s:lwht, "" )
 call s:HI( "Ignore", "", s:lblk, "" )
 call s:HI( "Comment", "", s:dwht, "" )
-call s:HI( "LineNr", "", s:lblk, "" )
+call s:HI( "LineNr", s:lblk, s:lred, "" )
 call s:HI( "Float", "", s:dylw, "" )
 call s:HI( "Include", "", s:dmag, "" )
 call s:HI( "Define", "", s:dgrn, "" )
