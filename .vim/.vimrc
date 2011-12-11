@@ -13,7 +13,6 @@ Bundle 'gmarik/vundle'
 " vim-scripts repos
 Bundle 'python.vim'
 Bundle 'surrparen'
-Bundle 'AsyncCommand'
 " github repos
 Bundle "vim-scripts/indentpython"
 Bundle "ervandew/supertab"
