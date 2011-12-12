@@ -43,13 +43,13 @@ nnoremap ' `
 nnoremap ` '
 
 " check for a tags file up to root
-set tags=.tags;/
+"set tags=.tags
 
 " autogenerate tags
-au BufWritePost *.py,*.c,*.cpp,*.h,*.lisp silent! !eval '/usr/local/bin/ctags -R -o .newtags; mv .newtags .tags' &
-au BufReadPre *.py,*.c,*.cpp,*.h,*.lisp silent! !eval '/usr/local/bin/ctags -R -o .newtags; mv .newtags .tags' &
+"au BufWritePost *.py,*.c,*.cpp,*.h,*.lisp silent! !eval '/usr/local/bin/ctags -R -o .newtags; mv .newtags .tags' &
+"au BufReadPre *.py,*.c,*.cpp,*.h,*.lisp silent! !eval '/usr/local/bin/ctags -R -o .newtags; mv .newtags .tags' &
 " delete .tags file on exit
-au VimLeave *.py,*.c,*.cpp,*.h,*.lisp silent! !eval 'if [ -f .tags ]; then rm .tags; fi'
+"au VimLeave *.py,*.c,*.cpp,*.h,*.lisp silent! !eval 'if [ -f .tags ]; then rm .tags; fi'
 
 
 " for mirodark colorscheme
@@ -65,14 +65,11 @@ set t_Co=256
 " returns to the same position.
 au BufReadPost * if line("'\"") > 0|if line("'\"") <=line("$")|exe("norm'\"")|else|exe "norm $"|endif|endif
 
-" break text at 79 chars
-setl textwidth=79
-
 " spell check .txt and .html files
 autocmd BufNewFile,BufRead *.txt,*.html,README set spell
 
 " autodelete trailing whitespace
-au BufWritePre *.py,*.h,*.m,*.lisp,*.c :%s/\s\+$//e
+au BufWritePre *.* :%s/\s\+$//e
 
 " Turn on line numbers:
 set number
