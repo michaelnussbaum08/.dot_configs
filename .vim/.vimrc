@@ -13,12 +13,31 @@ Bundle 'gmarik/vundle'
 " vim-scripts repos
 Bundle 'python.vim'
 Bundle 'surrparen'
+Bundle 'pep8'
 " github repos
 Bundle "vim-scripts/indentpython"
+Bundle "sjl/gundo.vim"
 Bundle "ervandew/supertab"
 Bundle "michaeljsmith/vim-indent-object"
+Bundle "reinh/vim-makegreen"
+Bundle "olethanh/Vim-nosecompiler"
 
-" persisten undo
+
+let mapleader = ","
+
+" Plugin settings and key maps:
+nnoremap <F5> :GundoToggle<CR>
+let g:pep8_map='<F8>'
+let g:SuperTabDefaultCompletionType = "context"
+" make pyflakes and other quickfix users cooperate
+let g:pyflakes_use_quickfix = 0
+" autocomplete standard python functions
+let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
+
+autocmd BufNewFile,BufRead *.py compiler nose
+
+
+" persistent undo
 set undodir=/tmp
 set undofile
 
@@ -31,9 +50,6 @@ set backupdir=/tmp
 set backupskip=/tmp/*
 set directory=/tmp
 set writebackup
-
-" autocomplete standard python functions
-let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
 
 " set the terminal title
 set title
@@ -51,15 +67,14 @@ nnoremap ` '
 " delete .tags file on exit
 "au VimLeave *.py,*.c,*.cpp,*.h,*.lisp silent! !eval 'if [ -f .tags ]; then rm .tags; fi'
 
-
-" for mirodark colorscheme
-let g:mirodark_enable_higher_constrast_mode=1
+" enable 256 color
+set t_Co=256
 
 " Coloring
 colorscheme mirodark
 
-" enable 256 color
-set t_Co=256
+" Colorscheme variables
+let g:mirodark_enable_higher_constrast_mode=1
 
 " This remembers where you were the last time you edited the file, and
 " returns to the same position.
@@ -71,8 +86,13 @@ autocmd BufNewFile,BufRead *.txt,*.html,README set spell
 " autodelete trailing whitespace
 au BufWritePre *.* :%s/\s\+$//e
 
+
 " Turn on line numbers:
 set number
+
+" code folding
+set foldmethod=indent
+set foldlevel=99
 
 " One of the most important options to activate. Allows you to switch from an
 " unsaved buffer without saving it first. Also allows you to keep an undo
