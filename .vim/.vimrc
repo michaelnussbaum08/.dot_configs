@@ -25,7 +25,7 @@ Bundle "olethanh/Vim-nosecompiler"
 
 let mapleader = ","
 
-" Plugin settings and key maps:
+" Plugin settings and maps:
 nnoremap <F5> :GundoToggle<CR>
 let g:pep8_map='<F8>'
 let g:SuperTabDefaultCompletionType = "context"
@@ -57,6 +57,8 @@ set title
 " makes '. jump to line + column of last edit, for example
 nnoremap ' `
 nnoremap ` '
+" make . jump to location of last edit
+nnoremap . .`
 
 " check for a tags file up to root
 "set tags=.tags
