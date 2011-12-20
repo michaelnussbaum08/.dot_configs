@@ -128,6 +128,9 @@ set expandtab
 " Show column
 set ruler
 
+" Highlight 80th column
+set colorcolumn=80
+
 set shell=/usr/local/bin/zsh
 
 " Enable backspace in insert mode
