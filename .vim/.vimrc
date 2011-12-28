@@ -88,6 +88,8 @@ autocmd BufNewFile,BufRead *.txt,*.html,README set spell
 " autodelete trailing whitespace
 au BufWritePre *.* :%s/\s\+$//e
 
+" use :W for save with sudo
+:command! W w !sudo tee % > /dev/null
 
 " Turn on line numbers:
 set number
