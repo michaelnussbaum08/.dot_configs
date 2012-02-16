@@ -21,6 +21,7 @@ Bundle "ervandew/supertab"
 Bundle "michaeljsmith/vim-indent-object"
 Bundle "reinh/vim-makegreen"
 Bundle "olethanh/Vim-nosecompiler"
+Bundle "Lokaltog/vim-powerline"
 
 
 let mapleader = ","
@@ -32,10 +33,13 @@ let g:SuperTabDefaultCompletionType = "context"
 " make pyflakes and other quickfix users cooperate
 let g:pyflakes_use_quickfix = 0
 " autocomplete standard python functions
-let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
+"let g:pydiction_location a '~/.vim/bundle/Pydiction/complete-dict'
+let g:Powerline_symbols = 'fancy'
 
 autocmd BufNewFile,BufRead *.py compiler nose
 
+set laststatus=2 " Always show the statusline
+set encoding=utf-8 " Necessary to show unicode glyphs
 
 " persistent undo
 set undodir=/tmp
@@ -129,6 +133,10 @@ set expandtab
 
 " Show column
 set ruler
+
+" Wrap txts at 80 chars
+autocmd FileType txt set textwidth=80
+autocmd FileType txt set wrap
 
 " Highlight 80th column
 set colorcolumn=80
