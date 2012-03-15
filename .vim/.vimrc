@@ -165,6 +165,9 @@ set incsearch
 set ignorecase
 set smartcase
 
+" less delay between modes switches
+set timeoutlen=10
+
 " Online doc search.
 function! OnlineDoc()
   if &ft =~ "cpp"
