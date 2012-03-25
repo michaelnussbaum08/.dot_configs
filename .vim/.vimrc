@@ -102,6 +102,9 @@ set number
 set foldmethod=indent
 set foldlevel=99
 
+" copy to system clipboard
+set clipboard=unnamed
+
 " One of the most important options to activate. Allows you to switch from an
 " unsaved buffer without saving it first. Also allows you to keep an undo
 " history for multiple files. Vim will complain if you try to quit without
@@ -165,8 +168,11 @@ set incsearch
 set ignorecase
 set smartcase
 
+" don't timeout key mappings
+set notimeout
+set ttimeout
 " less delay between modes switches
-set timeoutlen=10
+set timeoutlen=5
 
 " Online doc search.
 function! OnlineDoc()
