@@ -1,8 +1,9 @@
 [user]
-	name = Michael Nussbaum
-	email = michaelnussbaum08@gmail.com
+    name = Michael Nussbaum
+    email = michaelnussbaum08@gmail.com
+    editor = /usr/local/bin/vim
 
 [color]
-        ui = auto
+    ui = auto
 [core]
-	excludesfile = /Users/michaelnussbaum08/.gitignore_global
+    excludesfile = /Users/michaelnussbaum08/.gitignore_global

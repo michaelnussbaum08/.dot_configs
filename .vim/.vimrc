@@ -1,6 +1,6 @@
 " Vundle setup from https://github.com/gmarik/vundle
 set nocompatible
-filetype off
+filetype on
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -22,6 +22,9 @@ Bundle "michaeljsmith/vim-indent-object"
 Bundle "reinh/vim-makegreen"
 Bundle "olethanh/Vim-nosecompiler"
 Bundle "Lokaltog/vim-powerline"
+Bundle 'vim-ruby/vim-ruby'
+" Bundle failing so manually installed matchit.vim
+" http://www.vim.org/scripts/script.php?script_id=39
 
 
 let mapleader = ","
@@ -29,12 +32,24 @@ let mapleader = ","
 " Plugin settings and maps:
 nnoremap <F5> :GundoToggle<CR>
 let g:pep8_map='<F8>'
-let g:SuperTabDefaultCompletionType = "context"
 " make pyflakes and other quickfix users cooperate
 let g:pyflakes_use_quickfix = 0
 " autocomplete standard python functions
 "let g:pydiction_location a '~/.vim/bundle/Pydiction/complete-dict'
 let g:Powerline_symbols = 'fancy'
+
+" Chain supertab completion types, first try omnicompletion, then keyword
+" completion.
+autocmd FileType *
+    \ if &omnifunc != '' |
+    \   call SuperTabChain(&omnifunc, "<c-p>") |
+    \   call SuperTabSetDefaultCompletionType("<c-x><c-u>") |
+    \ endif
+
+
+
+autocmd FileType ruby map <F9> :w<CR>:!ruby -c %<CR>
+
 
 autocmd BufNewFile,BufRead *.py compiler nose
 
@@ -57,6 +72,9 @@ set writebackup
 
 " set the terminal title
 set title
+
+" split line, reverse-J
+nmap <silent> <leader><CR> i<CR><ESC>
 
 " makes '. jump to line + column of last edit, for example
 nnoremap ' `
@@ -102,9 +120,6 @@ set number
 set foldmethod=indent
 set foldlevel=99
 
-" copy to system clipboard
-set clipboard=unnamed
-
 " One of the most important options to activate. Allows you to switch from an
 " unsaved buffer without saving it first. Also allows you to keep an undo
 " history for multiple files. Vim will complain if you try to quit without
@@ -129,10 +144,11 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
 " Indentation settings for using 2 spaces instead of tabs.
-" Do not change 'tabstop' from its default value of 8 with this setup.
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set expandtab
+set autoindent
+set smarttab
 
 " Show column
 set ruler
@@ -173,6 +189,8 @@ set notimeout
 set ttimeout
 " less delay between modes switches
 set timeoutlen=5
+
+compiler ruby
 
 " Online doc search.
 function! OnlineDoc()
