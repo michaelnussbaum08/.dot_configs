@@ -23,6 +23,7 @@ Bundle "reinh/vim-makegreen"
 Bundle "olethanh/Vim-nosecompiler"
 Bundle "Lokaltog/vim-powerline"
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-endwise'
 " Bundle failing so manually installed matchit.vim
 " http://www.vim.org/scripts/script.php?script_id=39
 
@@ -39,9 +40,9 @@ let g:pyflakes_use_quickfix = 0
 let g:Powerline_symbols = 'fancy'
 " vimux
 " Prompt for a command to run map
-map <Leader>vp :VimuxPromptCommand<CR>
+map <Leader>vp :w<CR> :VimuxPromptCommand<CR>
 " Run last command executed by VimuxRunCommand
-map <Leader>vl :VimuxRunLastCommand<CR>
+map <Leader>vl :w<CR> :VimuxRunLastCommand<CR>
 
 " Chain supertab completion types, first try omnicompletion, then keyword
 " completion.
@@ -164,6 +165,7 @@ autocmd FileType txt set wrap
 
 " Highlight 80th column
 set colorcolumn=80
+highlight ColorColumn ctermbg=97
 
 set shell=/usr/local/bin/zsh
 

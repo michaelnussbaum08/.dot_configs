@@ -1,0 +1,31 @@
+[general]
+# This should contain a comma delimited list of all identifiers of the accounts
+# that are to be synced
+accounts = gmail
+# If there are two accounts; `main' and `alternative'...
+#accounts = main,alternative
+
+[Account gmail]
+# The identifier for the local repository; e.g., the maildir that offlineimap
+# will sync with an IMAP server
+localrepository = gmail-local
+# The identifier for the remote repository. This is the actual IMAP, which is
+# usually foreign to the system
+remoterepository = gmail-remote
+
+[Repository gmail-local]
+# Currently, offlineimap only supports maildir and IMAP for local repositories
+type = Maildir
+# Where should the mail be placed?
+localfolders = ~/.mail/michaelnussbaum08
+
+[Repository gmail-remote]
+# Remote repos can be IMAP or Gmail, the latter being a preconfigured IMAP
+type = IMAP
+remotehost = imap.gmail.com
+remoteuser = michaelnussbaum08@gmail.com
+remotepass = hyustdtdijuufjsi
+ssl = yes
+maxconnections = 1
+realdelete = no
+cert_fingerprint=f3043dd689a2e7dddfbef82703a6c65ea9b634c1
