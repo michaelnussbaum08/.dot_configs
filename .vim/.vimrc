@@ -24,8 +24,15 @@ Bundle "olethanh/Vim-nosecompiler"
 Bundle "Lokaltog/vim-powerline"
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-endwise'
-" Bundle failing so manually installed matchit.vim
-" http://www.vim.org/scripts/script.php?script_id=39
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-rails'
+Bundle 'scrooloose/vim-space'
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'tsaleh/vim-matchit'
+Bundle 'benmills/vimux'
+Bundle 'vim-scripts/YankRing.vim'
+Bundle 'Raimondi/delimitMate'
 
 
 let mapleader = ","
@@ -51,6 +58,10 @@ autocmd FileType *
     \   call SuperTabChain(&omnifunc, "<c-p>") |
     \   call SuperTabSetDefaultCompletionType("<c-x><c-u>") |
     \ endif
+
+" syntax highlight all rspec files
+autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
+highlight def link rubyRspec Function
 
 
 
