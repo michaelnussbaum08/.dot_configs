@@ -47,9 +47,9 @@ let g:pyflakes_use_quickfix = 0
 let g:Powerline_symbols = 'fancy'
 " vimux
 " Prompt for a command to run map
-map <Leader>vp :w<CR> :VimuxPromptCommand<CR>
+map <Leader>vp :VimuxPromptCommand<CR>
 " Run last command executed by VimuxRunCommand
-map <Leader>vl :w<CR> :VimuxRunLastCommand<CR>
+map <Leader>vl :VimuxRunLastCommand<CR>
 
 " Chain supertab completion types, first try omnicompletion, then keyword
 " completion.
@@ -193,7 +193,7 @@ set wildmode=longest,list
 set hlsearch
 " Press Space to turn off highlighting and clear any message already
 " displayed.
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+nnoremap <silent> <Leader><Space> :nohlsearch<Bar>:echo<CR>
 
 " incremental search highlighting
 set incsearch

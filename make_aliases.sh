@@ -8,3 +8,4 @@ ln -s ~/.dot_configs/.tmux.conf ~/.tmux.conf
 ln -s ~/.dot_configs/.vim ~/.vim
 ln -s ~/.dot_configs/.vim/.vimrc ~/.vimrc
 ln -s ~/.dot_configs/.zshrc ~/.zshrc
+ln -s ~/.dot_configs/.rspec ~/.rspec
