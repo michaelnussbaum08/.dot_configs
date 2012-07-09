@@ -213,9 +213,9 @@ set incsearch
 set ignorecase
 set smartcase
 
+" timeout for key codes but not mappings
 set ttimeout
-" less delay between modes switches
-set timeoutlen=5
+set ttimeoutlen=5
 
 compiler ruby
 
