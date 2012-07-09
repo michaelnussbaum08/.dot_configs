@@ -213,8 +213,6 @@ set incsearch
 set ignorecase
 set smartcase
 
-" don't timeout key mappings
-set notimeout
 set ttimeout
 " less delay between modes switches
 set timeoutlen=5
