@@ -33,6 +33,7 @@ Bundle 'tsaleh/vim-matchit'
 Bundle 'benmills/vimux'
 Bundle 'vim-scripts/YankRing.vim'
 Bundle 'Raimondi/delimitMate'
+Bundle 'jeffkreeftmeijer/vim-numbertoggle'
 
 
 let mapleader = ","
@@ -63,12 +64,22 @@ autocmd FileType *
 autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
 highlight def link rubyRspec Function
 
-
-
 autocmd FileType ruby map <F9> :w<CR>:!ruby -c %<CR>
 
-
 autocmd BufNewFile,BufRead *.py compiler nose
+
+" save on focus lost
+au FocusLost * :wa
+
+" open vertical splits
+nnoremap <leader>w <C-w>v<C-w>l
+
+" make vim regex act like python regex
+nnoremap / /\v
+vnoremap / /\v
+
+" global search/replace by default
+set gdefault
 
 set laststatus=2 " Always show the statusline
 set encoding=utf-8 " Necessary to show unicode glyphs
