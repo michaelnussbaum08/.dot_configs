@@ -122,11 +122,12 @@ nnoremap . .`
 " enable 256 color
 set t_Co=256
 
+" Colorscheme variables
+let g:mirodark_enable_higher_constrast_mode=1
+
 " Coloring
 colorscheme mirodark
 
-" Colorscheme variables
-let g:mirodark_enable_higher_constrast_mode=1
 
 " This remembers where you were the last time you edited the file, and
 " returns to the same position.
