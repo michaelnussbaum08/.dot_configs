@@ -31,9 +31,9 @@ Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'benmills/vimux'
-Bundle 'vim-scripts/YankRing.vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'jeffkreeftmeijer/vim-numbertoggle'
+Bundle 'michaelnussbaum08/rainbow_end.vim'
 
 
 let mapleader = ","
@@ -48,9 +48,11 @@ let g:pyflakes_use_quickfix = 0
 let g:Powerline_symbols = 'fancy'
 " vimux
 " Prompt for a command to run map
-map <Leader>vp :VimuxPromptCommand<CR>
+nnoremap <Leader>vp :VimuxPromptCommand<CR>
 " Run last command executed by VimuxRunCommand
-map <Leader>vl :VimuxRunLastCommand<CR>
+nnoremap <Leader>vl :VimuxRunLastCommand<CR>
+" Toggle ruby block rainbow highlighting
+nnoremap <silent> <leader>b :call ToggleRainbow()<CR>
 
 " Chain supertab completion types, first try omnicompletion, then keyword
 " completion.
@@ -217,6 +219,10 @@ set smartcase
 " timeout for key codes but not mappings
 set ttimeout
 set ttimeoutlen=5
+
+" make Y yank to end of line
+noremap Y y$
+
 
 compiler ruby
 
