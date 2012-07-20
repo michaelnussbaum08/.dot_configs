@@ -34,6 +34,7 @@ Bundle 'benmills/vimux'
 Bundle 'Raimondi/delimitMate'
 Bundle 'jeffkreeftmeijer/vim-numbertoggle'
 Bundle 'michaelnussbaum08/rainbow_end.vim'
+Bundle 'coderifous/textobj-word-column.vim'
 
 
 let mapleader = ","
