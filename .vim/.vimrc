@@ -55,6 +55,7 @@ nnoremap <Leader>vp :VimuxPromptCommand<CR>
 nnoremap <Leader>vl :VimuxRunLastCommand<CR>
 " Toggle ruby block rainbow highlighting
 nnoremap <silent> <leader>b :call ToggleRainbow()<CR>
+let g:EasyMotion_leader_key = '<Leader>'
 
 " Chain supertab completion types, first try omnicompletion, then keyword
 " completion.
@@ -75,8 +76,10 @@ autocmd BufNewFile,BufRead *.py compiler nose
 " save on focus lost
 au FocusLost * :wa
 
-" open vertical splits
-nnoremap <leader>w <C-w>v<C-w>l
+" open vertical split
+nnoremap <leader>v <C-w>v<C-w>l
+" open horizontal split
+nnoremap <leader>s <c-w>s<c-w>j
 
 " make vim regex act like python regex
 nnoremap / /\v
