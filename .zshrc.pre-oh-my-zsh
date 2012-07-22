@@ -26,9 +26,9 @@ ZSH_THEME="prose"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git rails ruby rvm rake rspec python)
 
 source $ZSH/oh-my-zsh.sh
 
 . ~/.dot_configs/.zshrc.conf
-export PATH=/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin/:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin/:/usr/libexec:/Developer/Tools:/Library/Frameworks/Python.framework/Versions/Current/bin:/Users/michaelnussbaum08/bin:/Applications/Racket_v5.1/bin:/Users/michaelnussbaum08/Documents/android-sdk-mac_86/tools:/Users/michaelnussbaum08/bin::/Applications/Racket_v5.1/bin:/Users/michaelnussbaum08/Documents/android-sdk-mac_86/tools
+export PATH=/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/usr/libexec:/Developer/Tools:/Library/Frameworks/Python.framework/Versions/Current/bin:/Users/michaelnussbaum08/bin:/usr/local/sbin
