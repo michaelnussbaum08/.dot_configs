@@ -12,33 +12,42 @@ if exists("g:rainbow_end_loaded") || !has("ruby")
     finish
 endif
 
+
 function! ToggleRainbow()
 ruby << EOF
   toggle_rainbow()
 EOF
 endfunction
 
+function! RainbowOff()
+ruby << EOF
+  toggle_rainbow(turn_off = true)
+EOF
+endfunction
+
+autocmd InsertEnter * :call RainbowOff()
+
 
 ruby << EOF
 
 # TODO: find and highlight middle elements of blocks (else, rescue, etc.)
-# TODO: detect files changes, if none then reuse found blocks
+# TODO: detect text changes, if none then reuse found blocks
 
 @rainbow_on = false
 
 
-def toggle_rainbow
+def toggle_rainbow(turn_off = @rainbow_on)
   #
   # Toggles rainbow highlighting of Ruby block opening/closing keywords
   #
-  if @rainbow_on
+  if turn_off
     Vim.command("call clearmatches()")
   else
     block_finder = BlockFinder.new
     highlighter = BlockHighlighter.new(block_finder.blocks)
     highlighter.color
   end
-  @rainbow_on = !@rainbow_on
+  @rainbow_on = !turn_off
 end
 
 
@@ -62,9 +71,18 @@ class BlockHighlighter
   end
 
   def color()
-    colors = COLORS.cycle
+    # cycle through all available colors
+    colors = COLORS.keys
+    color_counter = 0
     @blocks.each do |beginning, ending|
-      color, color_code = colors.next
+      color = colors[color_counter]
+      color_code = COLORS[color]
+      # loop counter back to zero if end reachead
+      if color_counter + 1 == colors.size
+        color_counter = 0
+      else
+        color_counter += 1
+      end
       # the vim color group must be declared before it can be used
       _make_color_group(color, color_code)
       _highlight_word(color, beginning)
@@ -82,6 +100,9 @@ class BlockHighlighter
     # word_location is a hash with a :line number and the :char_range start and
     # end indices of a word to highlight.
     #
+    if word_location.empty?
+      return
+    end
     line = word_location[:line]
     start_column = word_location[:char_range][0] + 1
     end_column = word_location[:char_range][1] + 1
@@ -140,7 +161,7 @@ class BlockFinder
         match_group = end_lines
       elsif beginning_matches.any?
         # There should only be one beginning per line
-        found_beginning = beginning_matches.keep_if { |found| found }.first
+        found_beginning = beginning_matches.compact.first
         match_range = found_beginning.offset(0)
         match_group = beginning_lines
       end
@@ -148,7 +169,7 @@ class BlockFinder
       if match_range
         hash_match = line.match("#")
         if not hash_match or (hash_match and
-          hash_match.offset(0)[0] > match_range[0])
+            hash_match.offset(0)[0] > match_range[0])
           match_group << {:line => line_num, :char_range => match_range}
         end
       end
@@ -164,13 +185,13 @@ class BlockFinder
     #
     # Sort beginnings by line number so the hi lowest beginning line that is
     # still above the end line we are trying to pair off is selected first.
-    beginnings.sort_by!{ |match| match[:line] }.reverse!
-    ends.map do |ending|
+    beginnings.sort!{ |match1, match2| match1[:line] <=> match2[:line] }.reverse!
+    ends.each do |ending|
       # beginning_match is the first block opening keyword above the ending
       # keyword we are currently trying to pair off.
       beginning_match = beginnings.select do |beginning|
         break beginning if beginning[:line] < ending[:line]
-      end
+      end || {}
       # beginnings are removed as they're paired off with endings
       beginnings.delete(beginning_match)
       @blocks << [beginning_match, ending]
