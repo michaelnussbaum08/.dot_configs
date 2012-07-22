@@ -131,6 +131,8 @@ let g:mirodark_enable_higher_constrast_mode=1
 " Coloring
 colorscheme mirodark
 
+let ruby_operators=1
+
 
 " This remembers where you were the last time you edited the file, and
 " returns to the same position.
