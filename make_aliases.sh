@@ -1,3 +1,5 @@
+export CONFIG_PATH="${HOME}/configs"
+
 ln -s $CONFIG_PATH/gitconfig ~/.gitconfig
 ln -s $CONFIG_PATH/pythonrc ~/.pythonrc
 ln -s $CONFIG_PATH/tmux.conf ~/.tmux.conf

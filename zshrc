@@ -1,6 +1,6 @@
 export CONFIG_PATH="${HOME}/configs"
 
-source "/Users/nussyb/configs/zsh/colors.zsh"
+source $CONFIG_PATH/zsh/colors.zsh
 source $CONFIG_PATH/zsh/setopt.zsh
 source $CONFIG_PATH/zsh/exports.zsh
 source $CONFIG_PATH/zsh/bindkey.zsh
