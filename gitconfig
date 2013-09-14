@@ -25,5 +25,3 @@
   pile = stash --include-untracked
 [push]
   default = current
-[core]
-  excludesfile = /Users/michaelnussbaum08/.gitignore_global
