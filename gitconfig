@@ -1,0 +1,29 @@
+[user]
+  name = mnussbaum
+  email = michael.nussbaum@getbraintree.com
+[color]
+  ui = auto
+[alias]
+  ci = commit
+  co = checkout
+  st = status
+  ch = cherry -v origin
+  br = branch
+  addall = add -A .
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  oneline = log --pretty=format:\"%h %ad%x20%s%x20%x28%an%x29\" --date=sh
+  current = log --pretty=format:'%ad %h %d' --abbrev-commit --date=short
+  cur = log --pretty=format:'%ad %h %d' --abbrev-commit --date=short -1
+  branches = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+
+  # show difference between the HEAD and the index
+  staged = diff --cached
+
+  # show difference between working tree and the index
+  unstaged = diff
+
+  pile = stash --include-untracked
+[push]
+  default = current
+[core]
+  excludesfile = /Users/michaelnussbaum08/.gitignore_global

@@ -1,0 +1,5 @@
+alias ls="ls -a"
+alias cp="nocorrect cp"
+alias mv="nocorrect mv"
+alias mkdir="nocorrect mkdir"
+alias rspec="nocorrect rspec"
