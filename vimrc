@@ -74,6 +74,7 @@ set undofile
 set shortmess=atI
 
 " backup to /.tmp
+set dir=/tmp
 set backup
 set backupdir=/tmp
 set backupskip=/tmp/*
