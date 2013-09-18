@@ -25,6 +25,8 @@ Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'pgr0ss/vimux-ruby-test'
 Bundle 'Raimondi/delimitMate'
+Bundle "nanotech/jellybeans.vim"
+Bundle "Shougo/unite.vim"
 
 let mapleader = "\\"
 
@@ -83,6 +85,10 @@ set writebackup
 
 " set the terminal title
 set title
+
+colorscheme jellybeans
+" remove jellybeans' grey text background
+highlight Normal ctermbg=NONE
 
 " makes '. jump to line + column of last edit, for example
 nnoremap ' `
