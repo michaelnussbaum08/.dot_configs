@@ -139,8 +139,6 @@ set ruler
 set colorcolumn=80
 highlight ColorColumn ctermbg=97
 
-set shell=/usr/local/bin/zsh
-
 " Enable backspace in insert mode
 set backspace=2
 
